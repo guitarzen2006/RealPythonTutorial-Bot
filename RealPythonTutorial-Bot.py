@@ -20,9 +20,10 @@ async def on_ready():
         f'{GUILD.name}(id: {GUILD.id})'
     )
 
-
-
-
-
+# This line shoud be in every bot to protect from the bot responding to itself
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
 client.run(token)
